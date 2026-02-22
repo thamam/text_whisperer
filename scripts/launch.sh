@@ -2,7 +2,8 @@
 # Voice Transcription Tool Launcher
 # This script launches the application with proper permissions
 
-cd "/home/thh3/personal/tools/text_whisperer/voice_transcription_tool"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${SCRIPT_DIR}/../voice_transcription_tool"
 
 # Check if running with sudo for hotkeys
 if [ "$EUID" -eq 0 ]; then

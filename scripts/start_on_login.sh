@@ -4,7 +4,9 @@
 # This script starts the application in the background when you log in
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VENV_PYTHON="/home/thh3/personal/tools/text_whisperer/.venv/bin/python"
+VENV_PYTHON="${SCRIPT_DIR}/../.venv/bin/python"
+# Fall back to system python3 if venv not present
+[ -x "$VENV_PYTHON" ] || VENV_PYTHON="$(which python3)"
 PIDFILE="$SCRIPT_DIR/.voice_transcription.pid"
 
 # Check if already running

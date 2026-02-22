@@ -2,8 +2,9 @@
 # Voice Transcription Tool Control Script
 # Easy management of the Voice Transcription Tool process
 
-PYTHON_BIN="/home/thh3/anaconda3/bin/python3"
-APP_DIR="/home/thh3/personal/tools/text_whisperer"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PYTHON_BIN="$(which python3)"
+APP_DIR="$SCRIPT_DIR"
 APP_MAIN="${APP_DIR}/main.py"
 LOG_DIR="${APP_DIR}/logs"
 LOCK_FILE="/tmp/voice_transcription.lock"
@@ -160,7 +161,6 @@ Examples:
 Keyboard Shortcuts (when running):
   Alt+D   Start/stop recording
   Alt+S   Open settings dialog
-  Alt+W   Toggle wake word detection
 
 Configuration:
   Config: $APP_DIR/voice_transcription_config.json

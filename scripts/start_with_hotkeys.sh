@@ -4,7 +4,9 @@
 # This script starts the application with sudo for global hotkey support
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VENV_PYTHON="/home/thh3/personal/tools/text_whisperer/.venv/bin/python"
+VENV_PYTHON="${SCRIPT_DIR}/../.venv/bin/python"
+# Fall back to system python3 if venv not present
+[ -x "$VENV_PYTHON" ] || VENV_PYTHON="$(which python3)"
 
 echo "🔥 Starting Voice Transcription Tool with Global Hotkeys..."
 echo ""

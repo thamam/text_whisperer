@@ -10,11 +10,11 @@ Usage:
 import sys
 import os
 
-# Add the current directory to Python path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Add repo root to Python path (this script lives in scripts/, repo root is one level up)
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import and run main
-from main import main
+from voice_transcription_tool.main import main
 
 if __name__ == "__main__":
     sys.exit(main())

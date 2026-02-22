@@ -190,6 +190,6 @@ The application automatically adds new v2.1 config fields:
 | **Visual Feedback** | Minimal | Good | Excellent |
 | **Transcription Speed** | 1x | 1x | 4x |
 
-[2.1.0]: https://github.com/yourusername/voice-transcription-tool/compare/v2.0.0...v2.1.0
-[2.0.0]: https://github.com/yourusername/voice-transcription-tool/compare/v1.0.0...v2.0.0
-[1.0.0]: https://github.com/yourusername/voice-transcription-tool/releases/tag/v1.0.0
+[2.1.0]: https://github.com/thamam/text_whisperer/compare/v2.0.0...v2.1.0
+[2.0.0]: https://github.com/thamam/text_whisperer/compare/v1.0.0...v2.0.0
+[1.0.0]: https://github.com/thamam/text_whisperer/releases/tag/v1.0.0
