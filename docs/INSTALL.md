@@ -1,110 +1,62 @@
-# Voice Transcription Tool - Ubuntu Installation Guide
+# Installation Guide
 
-## Quick Installation
+## System Dependencies
 
-### Option 1: Install the .deb Package (Recommended)
-
+### Linux (Ubuntu/Debian)
 ```bash
-# Install the package
-sudo dpkg -i voice-transcription-tool_2.0.1.deb
-
-# Install dependencies (required)
-sudo apt-get install -f
-
-# Or install everything in one command:
-sudo apt install ./voice-transcription-tool_2.0.1.deb
+sudo apt install ffmpeg xclip xdotool python3-tk
 ```
 
-### Option 2: Manual Installation
-If you prefer not to use the .deb package, you can still use the desktop installer:
+### macOS
 ```bash
-python3 install_package.py
+brew install ffmpeg
 ```
 
-## Usage
+### Windows
+Download FFmpeg from https://ffmpeg.org/download.html and add it to your PATH.
 
-### Starting the Application
+> **Note:** Auto-paste (`xdotool`) is currently Linux-only. On macOS and Windows, transcribed text is copied to the clipboard instead.
 
-**From Terminal:**
+## Python Dependencies
+
 ```bash
-# Regular mode (no global hotkeys)
-voice-transcription-tool
-
-# With global hotkeys (requires sudo)
-sudo voice-transcription-tool
+pip install -r requirements.txt
 ```
 
-**From GUI:**
-- Open Applications menu
-- Search for "Voice Transcription Tool"
-- Click to launch
+This installs all required packages including faster-whisper, pynput, pyaudio, and pygame.
 
-### Global Hotkeys (when running with sudo)
-- **Alt+D**: Start/Stop recording
-- **Alt+S**: Open Settings
-- **Alt+W**: Toggle Wake Word detection
+> **GPU acceleration (optional):** For NVIDIA GPU support, ensure CUDA Toolkit and cuDNN are installed. The app auto-detects and falls back to CPU gracefully.
 
-## Features
+## Running the Application
 
-✅ **Speech Recognition Engines**
-- Whisper (local, high quality)
-- Google Speech Recognition (online)
+```bash
+python3 main.py
+```
 
-✅ **Wake Word Detection**
-- Hands-free activation
-- Customizable wake words
-- Voice training for accuracy
+Or from the `voice_transcription_tool/` directory:
 
-✅ **Modern GUI**
-- Tabbed interface
-- Advanced mode toggle
-- Real-time audio visualization
+```bash
+cd voice_transcription_tool/
+python3 main.py
+```
 
-✅ **System Integration**
-- Auto-paste transcriptions
-- Clipboard integration
-- System tray operation
+## Background Service
 
-✅ **Audio Features**
-- Multiple input device support
-- Audio feedback
-- Device testing tools
+Use the manager script to run as a background service:
 
-## System Requirements
+```bash
+./voice_transcription_manager.sh --start    # Start in background
+./voice_transcription_manager.sh --status   # Check status
+./voice_transcription_manager.sh --stop     # Stop
+```
 
-- Ubuntu 18.04+ (or compatible Debian-based system)
-- Python 3.8+
-- Audio input device (microphone)
-- Internet connection (for Google Speech engine)
+## Verifying the Installation
+
+1. Run `python3 main.py`
+2. The GUI window and system tray icon should appear
+3. Press **Alt+D** to start recording — a pulsing banner indicates active recording
+4. Speak, then release **Alt+D** — text is transcribed and auto-pasted at your cursor
 
 ## Troubleshooting
 
-### Dependencies
-The package automatically installs Python dependencies during installation. If you encounter issues:
-
-```bash
-# Reinstall the package
-sudo dpkg -r voice-transcription-tool
-sudo dpkg -i voice-transcription-tool_2.0.1.deb
-sudo apt-get install -f
-```
-
-### Audio Issues
-- Check microphone permissions
-- Test audio devices in settings
-- Ensure PulseAudio is running
-
-### Global Hotkeys
-- Global hotkeys require sudo privileges
-- Run with: `sudo voice-transcription-tool`
-- Alternative: Use GUI buttons for recording
-
-## Uninstallation
-
-```bash
-sudo dpkg -r voice-transcription-tool
-```
-
-## Support
-
-For issues and feature requests, please refer to the documentation or create an issue in the project repository.
+See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for common issues and solutions.

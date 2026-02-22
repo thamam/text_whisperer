@@ -6,6 +6,7 @@
 [![Coverage](https://img.shields.io/badge/coverage-71%25-green)](voice_transcription_tool/tests/)
 [![Python](https://img.shields.io/badge/python-3.7%2B-blue)](https://www.python.org/)
 [![Version](https://img.shields.io/badge/version-2.1-blue)](CHANGELOG.md)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 ## Quick Start
 
