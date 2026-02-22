@@ -204,12 +204,17 @@ class TrayManager:
     
     def is_available(self) -> bool:
         """
-        Check if tray icon is available.
+        Check if tray icon is available and actually docked/visible.
 
         Returns:
-            True if tray icon is running
+            True if tray icon is running and successfully docked
         """
-        return self.icon is not None
+        if self.icon is None:
+            return False
+        try:
+            return bool(self.icon.visible)
+        except Exception:
+            return False
 
     def notify_recording_started(self):
         """Show notification when recording starts."""

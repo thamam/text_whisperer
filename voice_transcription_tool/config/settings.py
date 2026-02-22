@@ -51,7 +51,7 @@ class ConfigManager:
             'force_cpu': False,  # Force CPU even if GPU available (for debugging)
             'whisper_model_size': 'base',  # Model size: tiny/base/small/medium/large
             # Health monitor defaults
-            'health_memory_limit': 1024,  # MB
+            'health_memory_limit': 2048,  # MB
             'health_cpu_limit': 95,       # Percent
             'health_check_interval': 30,  # Seconds
             'last_updated': datetime.now().isoformat()
