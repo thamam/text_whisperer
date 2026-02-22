@@ -15,7 +15,7 @@ echo "   Global hotkeys: Alt+D (record), Alt+S (settings), Alt+W (wake word)"
 echo ""
 
 # Check if already running
-if pgrep -f "voice_transcription_tool/run.py" > /dev/null; then
+if pgrep -f "scripts/run.py" > /dev/null; then
     echo "⚠️  Voice Transcription Tool is already running!"
     echo "   Stop it first with: ./stop_background_process.sh"
     exit 1

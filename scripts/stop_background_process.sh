@@ -21,4 +21,4 @@ else
 fi
 
 # Also kill any other instances that might be running
-pkill -f "voice_transcription_tool/run.py" && echo "Killed any other running instances."
+pkill -f "scripts/run.py" && echo "Killed any other running instances."
